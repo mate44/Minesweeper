@@ -164,7 +164,6 @@ public class Controller {
 		
 		//Inform the user that they have lost:
 		gui.failGameDialog();
-		//TODO - make a pop-up appear, informing the player that they have lost the game.
 	}
 	
 	/**
