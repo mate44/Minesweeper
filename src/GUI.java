@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  * Class for the entire GUI
@@ -41,5 +42,35 @@ public class GUI {
 	 */
 	public GUIBottom getGUIBottom() {
 		return bottom;
+	}
+	
+	/**
+	 * Dialog message to inform user they have lost
+	 */
+	public void failGameDialog() {
+		int response = JOptionPane.showConfirmDialog(null, "Play again?", "Play again", JOptionPane.YES_NO_OPTION);
+		if (response == 0) {
+			//User selected 'Yes'
+			//TODO - new Minesweeper game
+		}
+		else if (response == 1) {
+			//User selected 'No'
+			System.exit(0);
+		}
+	}
+	
+	/**
+	 * Dialog message to inform user they have won the game
+	 */
+	public void winGameDialog() {
+		int response = JOptionPane.showConfirmDialog(null, "Play again?", "Play again", JOptionPane.YES_NO_OPTION);
+		if (response == 0) {
+			//User selected 'Yes'
+			//TODO - new Minesweeper game
+		}
+		else if (response == 1) {
+			//User selected 'No'
+			System.exit(0);
+		}
 	}
 }

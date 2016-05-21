@@ -6,7 +6,6 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 
 
-
 /**
  * Class for the GUI of an individual grid cell
  */
@@ -64,7 +63,8 @@ public class GUIButton extends JButton {
 	private class Mouse implements MouseListener {
 
 		@Override
-		public void mouseClicked(MouseEvent arg0) {					//Left click
+		public void mouseClicked(MouseEvent arg0) {
+			//Left click:
 			if ((arg0.getButton() == MouseEvent.BUTTON1) && (controller.getCell(row, column).isFlagged() == false)) {
 				if (controller.isMine(row, column)) {
 					//Is a mine
@@ -75,10 +75,11 @@ public class GUIButton extends JButton {
 					click(controller.getCell(row, column).getNumAdjMines());
 				}
 				
-				setEnabled(false);
-				
+				//setEnabled(false);		//TODO - Fix this - it makes everything grey.
 			}
-			else if ((arg0.getButton() == MouseEvent.BUTTON3) && (isEnabled() == true)) {		//Right click
+			
+			//Right click:
+			else if ((arg0.getButton() == MouseEvent.BUTTON3) && (isEnabled() == true)) {
 				//Toggle whether cell is "flagged":
 				if (controller.getCell(row, column).isFlagged() == true) {
 					controller.getCell(row, column).setFlagged(false);

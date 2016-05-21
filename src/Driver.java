@@ -27,10 +27,6 @@ public class Driver {
 			num_high = 16;
 			num_mines = 99;
 		}
-		else {
-			//Invalid mode, so exit
-			System.exit(0);
-		}
 		
 		//Create the controller:
 		new Controller(num_wide, num_high, num_mines);
