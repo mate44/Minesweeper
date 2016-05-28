@@ -1,4 +1,3 @@
-Make a way for the user to select the game difficulty from the GUI
 If you select a mine first, generate a new game
 You win when only mines are left unselected. They don't have to be flagged.
 You shouldn't be able to flag a cell after it's been clicked.
