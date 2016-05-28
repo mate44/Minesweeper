@@ -52,6 +52,7 @@ public class GUIDifficulty extends JPanel {
 	 * ActionListener for the radio buttons
 	 */
 	private class RadioButtonListener implements ActionListener {
+		@Override
 		public void actionPerformed(ActionEvent event) {
 			//Get the selected difficulty level:
 			AbstractButton button = (AbstractButton) event.getSource();
