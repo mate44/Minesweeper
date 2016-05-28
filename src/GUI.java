@@ -8,10 +8,11 @@ import javax.swing.JOptionPane;
 public class GUI {
 	private GUITop top;
 	private GUIBottom bottom;
+	private JFrame frame;
 	
 	public GUI(int num_wide, int num_high, int num_mines, Controller controller) {
 		//Create large frame of GUI:
-		JFrame frame = new JFrame("Minesweeper");
+		frame = new JFrame("Minesweeper");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		frame.setLayout(new BorderLayout());
@@ -51,7 +52,7 @@ public class GUI {
 		int response = JOptionPane.showConfirmDialog(null, "Play again?", "Play again", JOptionPane.YES_NO_OPTION);
 		if (response == 0) {
 			//User selected 'Yes'
-			//TODO - new Minesweeper game
+			Driver.reset(); //TODO - check this works
 		}
 		else if (response == 1) {
 			//User selected 'No'
@@ -66,11 +67,19 @@ public class GUI {
 		int response = JOptionPane.showConfirmDialog(null, "Play again?", "Play again", JOptionPane.YES_NO_OPTION);
 		if (response == 0) {
 			//User selected 'Yes'
-			//TODO - new Minesweeper game
+			Driver.reset(); //TODO - check this works
 		}
 		else if (response == 1) {
 			//User selected 'No'
 			System.exit(0);
 		}
+	}
+	
+	/**
+	 * Closes the JFrame
+	 */
+	public void closeWindow() {
+		frame.setVisible(false);
+		frame.dispose();
 	}
 }

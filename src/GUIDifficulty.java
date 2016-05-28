@@ -1,3 +1,7 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.AbstractButton;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
@@ -15,9 +19,18 @@ public class GUIDifficulty extends JPanel {
 		JRadioButton easyButton = new JRadioButton("Easy");
 		JRadioButton mediumButton = new JRadioButton("Medium");
 		JRadioButton hardButton = new JRadioButton("Hard");
-		mediumButton.setSelected(true);
 		
-		//Add them to a group:
+		//Select the button for the current mode:
+		String currMode = Driver.getModeString();
+		if (currMode.equalsIgnoreCase("Easy")) {
+			easyButton.setSelected(true);
+		} else if (currMode.equalsIgnoreCase("Medium")) {
+			mediumButton.setSelected(true);
+		} else if (currMode.equalsIgnoreCase("Hard")) {
+			hardButton.setSelected(true);
+		}
+		
+		//Add RadioButtons to a group:
 		ButtonGroup buttons = new ButtonGroup();
 		buttons.add(easyButton);
 		buttons.add(mediumButton);
@@ -29,6 +42,24 @@ public class GUIDifficulty extends JPanel {
 		add(hardButton);
 		
 		//Create action listeners for the buttons:
-		//TODO - create action listener for each button. It should set the difficulty for the Controller, then call the "reset" method which I haven't created yet
+		RadioButtonListener listener = new RadioButtonListener();
+		easyButton.addActionListener(listener);
+		mediumButton.addActionListener(listener);
+		hardButton.addActionListener(listener);
+	}
+	
+	/**
+	 * ActionListener for the radio buttons
+	 */
+	private class RadioButtonListener implements ActionListener {
+		public void actionPerformed(ActionEvent event) {
+			//Get the selected difficulty level:
+			AbstractButton button = (AbstractButton) event.getSource();
+			String difficulty = button.getText();
+			
+			Driver.setMode(difficulty);
+			
+			Driver.reset(); //TODO - check this works
+		}
 	}
 }

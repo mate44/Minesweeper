@@ -1,3 +1,7 @@
+import java.awt.Dimension;
+import java.awt.Font;
+
+import javax.swing.Box;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.BoxLayout;
@@ -15,20 +19,23 @@ public class GUIBottom extends JPanel {
 		GUIDifficulty radioButtons = new GUIDifficulty();
 		add(radioButtons);
 		
-		//TODO - add empty space between the components
+		//Add empty space:
+		add(Box.createRigidArea(new Dimension(50, 0)));
 		
 		//Add label keeping track of amount of time game has been played:
 		JLabel time = new JLabel("Time: ");
+		time.setFont(new Font(null, Font.BOLD, 18));
 		add(time);
+		//TODO - Make timer work
+		
+		//Add empty space:
+		add(Box.createRigidArea(new Dimension(100, 0)));
 		
 		//Add label keeping track of number of mines remaining:
 		JLabel mines = new JLabel("Number of mines: ");
+		mines.setFont(new Font(null, Font.BOLD, 18));
 		add(mines);
 		
-		//TODO - add empty space between the components
-		
-		//TODO - set text size, colour and spacing
-		//TODO - Make timer work
-		//TODO - Make some way for the number of remaining mines to be set as a parameter
+		//TODO - Update the number of mines based on how many flags have been placed.
 	}
 }

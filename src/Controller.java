@@ -186,4 +186,12 @@ public class Controller {
 		}
 	}
 	
+	/**
+	 * Returns the GUI object
+	 * @return the GUI object
+	 */
+	public GUI getGUI() {
+		return gui;
+	}
+	
 }
