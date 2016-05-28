@@ -130,7 +130,7 @@ public class Controller {
 	/**
 	 * Displays where all mines are, as well as the number of mines for each Cell.
 	 */
-	public void displayAll() {
+	public void displayAllMines() {
 		GUITop top = gui.getGUITop();
 		
 		for (int row = 0; row < num_high; row++) {

@@ -49,14 +49,16 @@ public class GUI {
 	 * Dialog message to inform user they have lost
 	 */
 	public void failGameDialog() {
-		int response = JOptionPane.showConfirmDialog(null, "Play again?", "Play again", JOptionPane.YES_NO_OPTION);
+		int response = JOptionPane.showConfirmDialog(null, "Play again?", "Play again", JOptionPane.YES_NO_CANCEL_OPTION);
 		if (response == 0) {
 			//User selected 'Yes'
-			Driver.reset(); //TODO - check this works
-		}
-		else if (response == 1) {
+			Driver.reset();
+		} else if (response == 1) {
 			//User selected 'No'
 			System.exit(0);
+		} else if (response == 2) {
+			//User selected 'Cancel'
+			//TODO - lock everything.
 		}
 	}
 	
@@ -67,7 +69,7 @@ public class GUI {
 		int response = JOptionPane.showConfirmDialog(null, "Play again?", "Play again", JOptionPane.YES_NO_OPTION);
 		if (response == 0) {
 			//User selected 'Yes'
-			Driver.reset(); //TODO - check this works
+			Driver.reset();
 		}
 		else if (response == 1) {
 			//User selected 'No'

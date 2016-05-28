@@ -60,7 +60,7 @@ public class GUIDifficulty extends JPanel {
 			//Set the difficulty of the game:
 			Driver.setMode(difficulty);
 			
-			Driver.reset(); //TODO - check this works
+			Driver.reset();
 		}
 	}
 }

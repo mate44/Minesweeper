@@ -8,7 +8,6 @@ public class Cell {
 	private boolean flagged;		//If true, it means the user has marked this Cell as being a mine
 	private int num_adjacent_mines;	//Stores the number of adjacent mines
 	
-	
 	public Cell() {
 		is_mine = false;
 		flagged = false;
