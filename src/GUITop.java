@@ -13,7 +13,7 @@ public class GUITop extends JPanel {
 	public GUITop(int num_wide, int num_high, Controller controller) {
 		setLayout(new GridLayout(num_high, num_wide));
 		
-		buttons = new GUIButton[num_wide][num_high];
+		buttons = new GUIButton[num_high][num_wide];
 		
 		//Add the GUIButtons:
 		for (int row = 0; row < num_high; row++) {

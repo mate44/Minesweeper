@@ -34,7 +34,7 @@ public class Controller {
 	 */
 	public void createCells() {
 		//Create the 2D array:
-		cells = new Cell[num_wide][num_high];
+		cells = new Cell[num_high][num_wide];
 		
 		//Initialise the Cell's within the array:
 		for (int row = 0; row < num_high; row++) {

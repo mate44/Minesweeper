@@ -3,7 +3,7 @@ public class Driver {
 	
 	//Information about the Minesweeper difficulty:
 	private static enum Mode {EASY, MEDIUM, HARD};	//Minesweeper difficulty
-	private static Mode currMode = Mode.HARD;		//TODO - Medium
+	private static Mode currMode = Mode.MEDIUM;
 	private static Controller controller;
 	//Store the dimension of the grid:
 	private static int num_wide;
@@ -72,7 +72,6 @@ public class Driver {
 	 * @return the current mode
 	 */
 	public static String getModeString() {
-		System.out.println(currMode.toString());
 		return currMode.toString();
 	}
 }

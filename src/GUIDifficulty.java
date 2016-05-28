@@ -57,6 +57,7 @@ public class GUIDifficulty extends JPanel {
 			AbstractButton button = (AbstractButton) event.getSource();
 			String difficulty = button.getText();
 			
+			//Set the difficulty of the game:
 			Driver.setMode(difficulty);
 			
 			Driver.reset(); //TODO - check this works
