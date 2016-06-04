@@ -48,7 +48,7 @@ public class GUIButton extends JButton {
 		}
 		
 		//Make the button non-selectable:
-		//TODO - make button non-selectable
+		//TODO - make button non-selectable - maybe I could use polymorphism and use a 2D array of JComponents, which are parent classes of both JButtons and JLabels.
 		
 	}
 	
