@@ -194,4 +194,11 @@ public class Controller {
 		return gui;
 	}
 	
+	/**
+	 * Returns the number of mines in the game.
+	 * @return The number of mines
+	 */
+	public int getNumMines() {
+		return num_mines;
+	}
 }

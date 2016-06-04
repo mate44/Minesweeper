@@ -16,9 +16,10 @@ import javax.swing.Timer;
 @SuppressWarnings("serial")
 public class GUIBottom extends JPanel {
 	JLabel time;
+	JLabel mines;
 	int numSeconds;
 	
-	public GUIBottom(int num_mines) {
+	public GUIBottom(Controller controller) {
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		
 		//Set the number of seconds so far to 0:
@@ -41,7 +42,8 @@ public class GUIBottom extends JPanel {
 		add(Box.createRigidArea(new Dimension(100, 0)));
 		
 		//Add label keeping track of number of mines remaining:
-		JLabel mines = new JLabel("Number of mines: ");
+		mines = new JLabel();
+		setMinesRemainingLabel(controller.getNumMines());
 		mines.setFont(new Font(null, Font.BOLD, 18));
 		add(mines);
 		
@@ -57,6 +59,14 @@ public class GUIBottom extends JPanel {
 	 */
 	private void setTimeLabel() {
 		time.setText("Time: " + numSeconds);
+	}
+	
+	/**
+	 * Update the number of mines the user is yet to identify.
+	 * @param numMines The new number of mines
+	 */
+	private void setMinesRemainingLabel(int numMines) {
+		mines.setText("Mines remaining: " + numMines);
 	}
 	
 	/**

@@ -22,7 +22,7 @@ public class GUI {
 		frame.add(top, BorderLayout.NORTH);
 		
 		//Add the bottom text section to the GUI:
-		bottom = new GUIBottom(num_mines);
+		bottom = new GUIBottom(controller);
 		frame.add(bottom, BorderLayout.SOUTH);
 		
 		frame.setSize(750, 650);
