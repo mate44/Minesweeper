@@ -8,8 +8,8 @@ import javax.swing.Timer;
 
 @SuppressWarnings("serial")
 public class GUITimeTaken extends JPanel {
-	JLabel time;
-	int numSeconds;
+	private JLabel time;
+	private int numSeconds;
 	
 	public GUITimeTaken() {
 		//Set the number of seconds so far to 0:
