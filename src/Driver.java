@@ -1,4 +1,7 @@
 
+/**
+ * Class to run the whole program.
+ */
 public class Driver {
 	
 	//Information about the Minesweeper difficulty:

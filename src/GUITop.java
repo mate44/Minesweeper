@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 
 
 /**
- * Class for the grid section of the GUI.
+ * Class for the GUI section that holds the GUIGrid.
  */
 @SuppressWarnings("serial")
 public class GUITop extends JPanel {

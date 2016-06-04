@@ -6,6 +6,9 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
+/**
+ * Class for the GUI section that records how long the user has been playing.
+ */
 @SuppressWarnings("serial")
 public class GUITimeTaken extends JPanel {
 	private JLabel time;

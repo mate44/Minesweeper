@@ -3,6 +3,9 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * Class for the GUI section that shows the user how many mines remain.
+ */
 @SuppressWarnings("serial")
 public class GUIMinesRemaining extends JPanel {
 	private JLabel mines;
