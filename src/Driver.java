@@ -105,24 +105,130 @@ public class Driver {
 	}
 	
 	/**
-	 * TODO - create access methods for the following:
-	private static int GUIGridWidth;			//The width of the GUI Grid		TODO - set value
-	private static int GUIGridHeight;			//The height of the GUIGrid		TODO - set value
-	private static int GUIGridPaddingWidth;		//The width padding for the GUIGrid (each side)		TODO - set value
-	private static int GUIGridPaddingHeight;	//The height padding for the GUIGrid (each side)		TODO - set value
-	private static int GUITopWidth;				//The width of the GUITop		TODO - set value
-	private static int GUITopHeight;			//The height of the GUITop		TODO - set value
-	private static int GUIDifficultyWidth;		//The width of the GUIDifficulty		TODO - set value
-	private static int GUIDifficultyHeight;		//The height of the GUIDifficulty		TODO - set value
-	private static int GUITimeTakenWidth;		//The width of the GUITimeTaken			TODO - set value
-	private static int GUITimeTakenHeight;		//The height of the GUITimeTaken		TODO - set value
-	private static int GUIMinesRemainingWidth;	//The width of the GUIMinesRemaining	TODO - set value
-	private static int GUIMinesRemainingHeight;	//The height of the GUIMinesRemaining	TODO - set value
-	private static int GUIBottomWidth;			//The width of the GUIBottom		TODO - set value
-	private static int GUIBottomHeight;			//The height of the GUIBottom		TODO - set value
-	private static int GUIWidth;				//The width of the GUI		TODO - set value
-	private static int GUIHeight;				//The height of the GUI		TODO - set value
-	 * 
+	 * Returns the GUIGridWidth
+	 * @return the GUIGridWidth
 	 */
+	public static int getGUIGridWidth() {
+		return GUIGridWidth;
+	}
+	
+	/**
+	 * Returns the GUIGridHeight
+	 * @return the GUIGridHeight
+	 */
+	public static int getGUIGridHeight() {
+		return GUIGridHeight;
+	}
+	/**
+	 * Returns the GUIGridPaddingWidth
+	 * @return the GUIGridPaddingWidth
+	 */
+	public static int getGUIGridPaddingWidth() {
+		return GUIGridPaddingWidth;
+	}
+	
+	/**
+	 * Returns the GUIGridPaddingHeight
+	 * @return the GUIGridPaddingHeight
+	 */
+	public static int getGUIGridPaddingHeight() {
+		return GUIGridPaddingHeight;
+	}
+	
+	/**
+	 * Returns the GUITopWidth
+	 * @return the GUITopWidth
+	 */
+	public static int getGUITopWidth() {
+		return GUITopWidth;
+	}
+	
+	/**
+	 * Returns the GUITopHeight
+	 * @return the GUITopHeight
+	 */
+	public static int getGUITopHeight() {
+		return GUITopHeight;
+	}
+	
+	/**
+	 * Returns the GUIDifficultyWidth
+	 * @return the GUIDifficultyWidth
+	 */
+	public static int getGUIDifficultyWidth() {
+		return GUIDifficultyWidth;
+	}
+	
+	/**
+	 * Returns the GUIDifficultyHeight
+	 * @return the GUIDifficultyHeight
+	 */
+	public static int getGUIDifficultyHeight() {
+		return GUIDifficultyHeight;
+	}
+	
+	/**
+	 * Returns the GUITimeTakenWidth
+	 * @return the GUITimeTakenWidth
+	 */
+	public static int getGUITimeTakenWidth() {
+		return GUITimeTakenWidth;
+	}
+	
+	/**
+	 * Returns the GUITimeTakenHeight
+	 * @return the GUITimeTakenHeight
+	 */
+	public static int getGUITimeTakenHeight() {
+		return GUITimeTakenHeight;
+	}
+	
+	/**
+	 * Returns the GUIMinesRemainingWidth
+	 * @return the GUIMinesRemainingWidth
+	 */
+	public static int getGUIMinesRemainingWidth() {
+		return GUIMinesRemainingWidth;
+	}
+	
+	/**
+	 * Returns the GUIMinesRemainingHeight
+	 * @return the GUIMinesRemainingHeight
+	 */
+	public static int getGUIMinesRemainingHeight() {
+		return GUIMinesRemainingHeight;
+	}
+	
+	/**
+	 * Returns the GUIBottomWidth
+	 * @return the GUIBottomWidth
+	 */
+	public static int getGUIBottomWidth() {
+		return GUIBottomWidth;
+	}
+	
+	/**
+	 * Returns the GUIBottomHeight
+	 * @return the GUIBottomHeight
+	 */
+	public static int getGUIBottomHeight() {
+		return GUIBottomHeight;
+	}
+	
+	/**
+	 * Returns the GUIWidth
+	 * @return the GUIWidth
+	 */
+	public static int getGUIWidth() {
+		return GUIWidth;
+	}
+	
+	/**
+	 * Returns the GUIHeight
+	 * @return the GUIHeight
+	 */
+	public static int getGUIHeight() {
+		return GUIHeight;
+	}
 	
 }
