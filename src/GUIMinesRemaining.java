@@ -1,3 +1,4 @@
+import java.awt.Dimension;
 import java.awt.Font;
 
 import javax.swing.JLabel;
@@ -11,6 +12,8 @@ public class GUIMinesRemaining extends JPanel {
 	private JLabel mines;
 	
 	public GUIMinesRemaining(Controller controller) {
+		setPreferredSize(new Dimension(Driver.getGUIMinesRemainingWidth(), Driver.getGUIMinesRemainingHeight()));
+		
 		//Add label keeping track of number of mines remaining:
 		mines = new JLabel();
 		setMinesRemainingLabel(controller.getNumMines());

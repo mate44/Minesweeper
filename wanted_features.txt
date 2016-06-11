@@ -6,4 +6,5 @@ When you select a cell with no mines adjacent, it should automatically show the 
 README
 
 Create padding in the GUI depending on the game difficulty
-Move num_mines, num_wide, num_high to Constants
+Once you win/lose, stop the timer
+I added the GUI dimensions to all required classes, but it doesn't quite work yet.

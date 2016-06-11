@@ -1,3 +1,4 @@
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,6 +15,8 @@ import javax.swing.BoxLayout;
 public class GUIDifficulty extends JPanel {
 	public GUIDifficulty() {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		
+		setPreferredSize(new Dimension(Driver.getGUIDifficultyWidth(), Driver.getGUIDifficultyHeight()));
 		
 		//Create the radio buttons:
 		JRadioButton easyButton = new JRadioButton("Easy");

@@ -1,3 +1,4 @@
+import java.awt.Dimension;
 import java.awt.GridLayout;
 
 import javax.swing.JPanel;
@@ -15,6 +16,8 @@ public class GUIGrid extends JPanel {
 		int numWide = Driver.getNumWide();
 		
 		setLayout(new GridLayout(numHigh, numWide));
+		
+		setPreferredSize(new Dimension(Driver.getGUIGridWidth(), Driver.getGUIGridHeight()));
 		
 		buttons = new GUIButton[numHigh][numWide];
 		

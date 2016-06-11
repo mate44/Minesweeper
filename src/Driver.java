@@ -7,29 +7,41 @@ public class Driver {
 	private static enum Mode {EASY, MEDIUM, HARD};	//Minesweeper difficulty
 	private static Mode currMode = Mode.MEDIUM;
 	private static Controller controller;
+	
 	//Store the dimension of the grid:
 	private static int numWide;
 	private static int numHigh;
 	private static int numMines;
 	
+	//Store the width, height and number of mines for each difficulty level:
+	private static int numWideEASY = 8;
+	private static int numHighEASY = 8;
+	private static int numMinesEASY = 10;
+	private static int numWideMEDIUM = 16;
+	private static int numHighMEDIUM = 16;
+	private static int numMinesMEDIUM = 40;
+	private static int numWideHARD = 30;
+	private static int numHighHARD = 16;
+	private static int numMinesHARD = 99;
+	
 	//Some values to store dimensions of different GUI components:
-	private static int GUIButtonLength = 50;	//The width and height of each GUIButton		TODO - set value to something I'm happy with
-	private static int GUIGridWidth;			//The width of the GUI Grid		TODO - set value
-	private static int GUIGridHeight;			//The height of the GUIGrid		TODO - set value
-	private static int GUIGridPaddingWidth;		//The width padding for the GUIGrid (each side)		TODO - set value
-	private static int GUIGridPaddingHeight;	//The height padding for the GUIGrid (each side)		TODO - set value
-	private static int GUITopWidth;				//The width of the GUITop		TODO - set value
-	private static int GUITopHeight;			//The height of the GUITop		TODO - set value
-	private static int GUIDifficultyWidth;		//The width of the GUIDifficulty		TODO - set value
-	private static int GUIDifficultyHeight;		//The height of the GUIDifficulty		TODO - set value
-	private static int GUITimeTakenWidth;		//The width of the GUITimeTaken			TODO - set value
-	private static int GUITimeTakenHeight;		//The height of the GUITimeTaken		TODO - set value
-	private static int GUIMinesRemainingWidth;	//The width of the GUIMinesRemaining	TODO - set value
-	private static int GUIMinesRemainingHeight;	//The height of the GUIMinesRemaining	TODO - set value
-	private static int GUIBottomWidth;			//The width of the GUIBottom		TODO - set value
-	private static int GUIBottomHeight;			//The height of the GUIBottom		TODO - set value
-	private static int GUIWidth;				//The width of the GUI		TODO - set value
-	private static int GUIHeight;				//The height of the GUI		TODO - set value
+	private static int GUIButtonLength = 20;	//The width and height of each GUIButton		TODO - set to appropriate value
+	private static int GUIGridWidth;			//The width of the GUI Grid
+	private static int GUIGridHeight;			//The height of the GUIGrid
+	private static int GUIGridPaddingWidth;		//The width padding for the GUIGrid (each side)
+	private static int GUIGridPaddingHeight;	//The height padding for the GUIGrid (each side)
+	private static int GUITopWidth;				//The width of the GUITop
+	private static int GUITopHeight;			//The height of the GUITop
+	private static int GUIDifficultyWidth;		//The width of the GUIDifficulty
+	private static int GUIDifficultyHeight;		//The height of the GUIDifficulty
+	private static int GUITimeTakenWidth;		//The width of the GUITimeTaken
+	private static int GUITimeTakenHeight;		//The height of the GUITimeTaken
+	private static int GUIMinesRemainingWidth;	//The width of the GUIMinesRemaining
+	private static int GUIMinesRemainingHeight;	//The height of the GUIMinesRemaining
+	private static int GUIBottomWidth;			//The width of the GUIBottom
+	private static int GUIBottomHeight = 100;	//The height of the GUIBottom			TODO - set to appropriate value
+	private static int GUIWidth;				//The width of the GUI
+	private static int GUIHeight;				//The height of the GUI
 	
 	public static void main(String[] args) {
 		//Deal a game of Minesweeper:
@@ -42,20 +54,23 @@ public class Driver {
 	public static void dealGame() {
 		//Set parameters based on difficulty:
 		if (currMode == Mode.EASY) {
-			numWide = 8;
-			numHigh = 8;
-			numMines = 10;
+			numWide = numWideEASY;
+			numHigh = numHighEASY;
+			numMines = numMinesEASY;
 		}
 		else if (currMode == Mode.MEDIUM) {
-			numWide = 16;
-			numHigh = 16;
-			numMines = 40;
+			numWide = numWideMEDIUM;
+			numHigh = numHighMEDIUM;
+			numMines = numMinesMEDIUM;
 		}
 		else if (currMode == Mode.HARD) {
-			numWide = 30;
-			numHigh = 16;
-			numMines = 99;
+			numWide = numWideHARD;
+			numHigh = numHighHARD;
+			numMines = numMinesHARD;
 		}
+		
+		//Set the dimensions for the GUI:
+		setGUIDimensions();
 		
 		//Create the controller:
 		controller = new Controller();
@@ -86,6 +101,58 @@ public class Driver {
 		} else {
 			System.out.println("Invalid mode set");
 		}
+	}
+	
+	/**
+	 * Based on the game difficulty, this method calculates the dimensions of the GUI variables.
+	 */
+	public static void setGUIDimensions() {
+		//Set GUIGrid dimension:
+		GUIGridWidth = numWide * GUIButtonLength;
+		GUIGridHeight = numHigh * GUIButtonLength;
+		
+		//Set GUITop dimension:
+		GUITopWidth = calculateMaxGUIGridWidth();
+		GUITopHeight = calculateMaxGUIGridHeight();
+		
+		//Set dimension of padding around GUIGrid:
+		GUIGridPaddingWidth = (GUITopWidth - GUIGridWidth) / 2;
+		GUIGridPaddingHeight = (GUITopHeight - GUIGridHeight) / 2;
+		
+		//Set GUIBottom dimension:
+		GUIBottomWidth = calculateMaxGUIGridWidth();
+		
+		//Set GUIDifficulty dimension:
+		GUIDifficultyWidth = GUIBottomWidth / 3;
+		GUIDifficultyHeight = GUIBottomHeight;
+		
+		//Set GUITimeTaken dimension:
+		GUITimeTakenWidth = GUIBottomWidth / 3;
+		GUITimeTakenHeight = GUIBottomHeight;
+		
+		//Set GUIMinesRemaining dimension:
+		GUIMinesRemainingWidth = GUIBottomWidth / 3;
+		GUIMinesRemainingHeight = GUIBottomHeight;
+		
+		//Set GUI dimension:
+		GUIWidth = calculateMaxGUIGridWidth();
+		GUIHeight = GUITopHeight + GUIBottomHeight;
+	}
+	
+	/**
+	 * Calculate the maximum height the GUIGrid can be. This is equal to the height of the HARD difficulty. 
+	 * @return the max height
+	 */
+	public static int calculateMaxGUIGridHeight() {
+		return GUIButtonLength * numHighHARD;
+	}
+	
+	/**
+	 * Calculate the maximum width the GUIGrid can be. This is equal to the width of the HARD difficulty.
+	 * @return the max width
+	 */
+	public static int calculateMaxGUIGridWidth() {
+		return GUIButtonLength * numWideHARD;
 	}
 	
 	/**

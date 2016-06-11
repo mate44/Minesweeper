@@ -1,3 +1,4 @@
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +16,8 @@ public class GUITimeTaken extends JPanel {
 	private int numSeconds;
 	
 	public GUITimeTaken() {
+		setPreferredSize(new Dimension(Driver.getGUITimeTakenWidth(), Driver.getGUITimeTakenHeight()));
+		
 		//Set the number of seconds so far to 0:
 		numSeconds = 0;
 		

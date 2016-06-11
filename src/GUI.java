@@ -1,4 +1,6 @@
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -16,6 +18,8 @@ public class GUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		frame.setLayout(new BorderLayout());
+		
+		frame.setPreferredSize(new Dimension(Driver.getGUIWidth(), Driver.getGUIHeight()));
 		
 		//Add the top grid section to the GUI:
 		top = new GUITop(controller);

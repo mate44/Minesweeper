@@ -1,3 +1,5 @@
+import java.awt.Dimension;
+
 import javax.swing.JPanel;
 import javax.swing.BoxLayout;
 
@@ -8,6 +10,8 @@ import javax.swing.BoxLayout;
 public class GUIBottom extends JPanel {
 	public GUIBottom(Controller controller) {
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+		
+		setPreferredSize(new Dimension(Driver.getGUIBottomWidth(), Driver.getGUIBottomHeight()));
 		
 		//Add radio buttons to select difficulty:
 		GUIDifficulty radioButtons = new GUIDifficulty();
