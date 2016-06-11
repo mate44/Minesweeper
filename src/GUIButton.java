@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -20,6 +21,9 @@ public class GUIButton extends JButton {
 		this.column = column;
 		
 		this.controller = controller;
+		
+		//Set size of button:
+		setPreferredSize(new Dimension(Driver.getGUIButtonLength(), Driver.getGUIButtonLength()));
 		
 		//Formatting of the button:
 		setSize(15, 15);
