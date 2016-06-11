@@ -8,12 +8,12 @@ public class Driver {
 	private static Mode currMode = Mode.MEDIUM;
 	private static Controller controller;
 	//Store the dimension of the grid:
-	private static int num_wide;
-	private static int num_high;
-	private static int num_mines;
+	private static int numWide;
+	private static int numHigh;
+	private static int numMines;
 	
 	//Some values to store dimensions of different GUI components:
-	private static int GUIButtonLength = 38;			//The width and height of each GUIButton		TODO - set value
+	private static int GUIButtonLength = 50;	//The width and height of each GUIButton		TODO - set value to something I'm happy with
 	private static int GUIGridWidth;			//The width of the GUI Grid		TODO - set value
 	private static int GUIGridHeight;			//The height of the GUIGrid		TODO - set value
 	private static int GUIGridPaddingWidth;		//The width padding for the GUIGrid (each side)		TODO - set value
@@ -42,23 +42,23 @@ public class Driver {
 	public static void dealGame() {
 		//Set parameters based on difficulty:
 		if (currMode == Mode.EASY) {
-			num_wide = 8;
-			num_high = 8;
-			num_mines = 10;
+			numWide = 8;
+			numHigh = 8;
+			numMines = 10;
 		}
 		else if (currMode == Mode.MEDIUM) {
-			num_wide = 16;
-			num_high = 16;
-			num_mines = 40;
+			numWide = 16;
+			numHigh = 16;
+			numMines = 40;
 		}
 		else if (currMode == Mode.HARD) {
-			num_wide = 30;
-			num_high = 16;
-			num_mines = 99;
+			numWide = 30;
+			numHigh = 16;
+			numMines = 99;
 		}
 		
 		//Create the controller:
-		controller = new Controller(num_wide, num_high, num_mines);
+		controller = new Controller();
 	}
 	
 	/**
@@ -229,6 +229,30 @@ public class Driver {
 	 */
 	public static int getGUIHeight() {
 		return GUIHeight;
+	}
+	
+	/**
+	 * Returns the numWide
+	 * @return the numWide
+	 */
+	public static int getNumWide() {
+		return numWide;
+	}
+	
+	/**
+	 * Returns the numHigh
+	 * @return the numHigh
+	 */
+	public static int getNumHigh() {
+		return numHigh;
+	}
+	
+	/**
+	 * Returns the numMines
+	 * @return the numMines
+	 */
+	public static int getNumMines() {
+		return numMines;
 	}
 	
 }

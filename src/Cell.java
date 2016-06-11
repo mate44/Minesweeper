@@ -4,28 +4,28 @@
  * Class to represent an individual cell which may or may not be a mine
  */
 public class Cell {
-	private boolean is_mine;		//Stores whether or not this Cell is a mine
+	private boolean isMine;		//Stores whether or not this Cell is a mine
 	private boolean flagged;		//If true, it means the user has marked this Cell as being a mine
-	private int num_adjacent_mines;	//Stores the number of adjacent mines
+	private int numAdjacentMines;	//Stores the number of adjacent mines
 	
 	public Cell() {
-		is_mine = false;
+		isMine = false;
 		flagged = false;
-		num_adjacent_mines = 0;
+		numAdjacentMines = 0;
 	}
 	
 	/**
 	 * Returns whether this Cell is a mine.
 	 */
 	public boolean isMine() {
-		return is_mine;
+		return isMine;
 	}
 	
 	/**
 	 * Returns the number of adjacent mines to this Cell.
 	 */
 	public int getNumAdjMines() {
-		return num_adjacent_mines;
+		return numAdjacentMines;
 	}
 	
 	/**
@@ -39,14 +39,14 @@ public class Cell {
 	 * Makes this Cell into a mine.
 	 */
 	public void makeMine() {
-		is_mine = true;
+		isMine = true;
 	}
 	
 	/**
 	 * Sets the number of adjacent mines to this Cell.
 	 */
 	public void setNumAdjMines(int num_mines) {
-		num_adjacent_mines = num_mines;
+		numAdjacentMines = num_mines;
 	}
 	
 	/**

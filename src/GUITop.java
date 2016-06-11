@@ -7,9 +7,9 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class GUITop extends JPanel {
 	GUIGrid grid;
-	public GUITop(int num_wide, int num_high, Controller controller) {
+	public GUITop(Controller controller) {
 		//Create GUIGrid:
-		grid = new GUIGrid(num_wide, num_high, controller);
+		grid = new GUIGrid(controller);
 		add(grid);
 	}
 	

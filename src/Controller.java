@@ -5,19 +5,19 @@ import java.util.Random;
  *
  */
 public class Controller {
-	private int num_wide, num_high, num_mines;
+	private int numWide, numHigh, numMines;
 	
 	private Cell[][] cells;
 	
 	private GUI gui;
 	
-	public Controller(int num_wide, int num_high, int num_mines) {
-		this.num_wide = num_wide;
-		this.num_high = num_high;
-		this.num_mines = num_mines;
+	public Controller() {
+		numWide = Driver.getNumWide();
+		numHigh = Driver.getNumHigh();
+		numMines = Driver.getNumMines();
 		
 		//Create the GUI:
-		gui = new GUI(num_wide, num_high, num_mines, this);
+		gui = new GUI(this);
 		
 		//Create the Cells:
 		createCells();
@@ -34,11 +34,11 @@ public class Controller {
 	 */
 	public void createCells() {
 		//Create the 2D array:
-		cells = new Cell[num_high][num_wide];
+		cells = new Cell[numHigh][numWide];
 		
 		//Initialise the Cell's within the array:
-		for (int row = 0; row < num_high; row++) {
-			for (int column = 0; column < num_wide; column++) {
+		for (int row = 0; row < numHigh; row++) {
+			for (int column = 0; column < numWide; column++) {
 				cells[row][column] = new Cell();
 			}
 		}
@@ -62,9 +62,9 @@ public class Controller {
 		Cell this_cell;
 		
 		//Keep placing mines until enough have been placed:
-		while (num_placed < num_mines) {
-			row = rand.nextInt(num_high);
-			column = rand.nextInt(num_wide);
+		while (num_placed < numMines) {
+			row = rand.nextInt(numHigh);
+			column = rand.nextInt(numWide);
 			
 			this_cell = cells[row][column];
 			
@@ -91,8 +91,8 @@ public class Controller {
 		int count;
 		
 		//Iterate over all Cells:
-		for (int row = 0; row < num_high; row++) {
-			for (int column = 0; column < num_wide; column++) {
+		for (int row = 0; row < numHigh; row++) {
+			for (int column = 0; column < numWide; column++) {
 				if (cells[row][column].isMine()) {
 					//Do nothing
 				}
@@ -103,7 +103,7 @@ public class Controller {
 					//Iterate over surrounding Cells:
 					for (int tmp_row = row - 1; tmp_row <= row + 1; tmp_row++) {
 						for (int tmp_column = column - 1; tmp_column <= column + 1; tmp_column++) {
-							if (tmp_row >= 0 && tmp_row < num_high && tmp_column >= 0 && tmp_column < num_wide) {
+							if (tmp_row >= 0 && tmp_row < numHigh && tmp_column >= 0 && tmp_column < numWide) {
 								if (tmp_row == row && tmp_column == column) {
 									//Don't bother counting this cell
 								}
@@ -133,8 +133,8 @@ public class Controller {
 	public void displayAllMines() {
 		GUIGrid grid = gui.getGUITop().getGUIGrid();
 		
-		for (int row = 0; row < num_high; row++) {
-			for (int column = 0; column < num_wide; column++) {
+		for (int row = 0; row < numHigh; row++) {
+			for (int column = 0; column < numWide; column++) {
 				if (cells[row][column].isMine()) {
 					grid.getButton(row, column).click(-1);
 				}
@@ -151,8 +151,8 @@ public class Controller {
 	 */
 	public void failGame() {
 		//Iterate over the grid:
-		for (int row = 0; row < num_high; row++) {
-			for (int column = 0; column < num_wide; column++) {
+		for (int row = 0; row < numHigh; row++) {
+			for (int column = 0; column < numWide; column++) {
 				if (cells[row][column].isMine()) {
 					gui.getGUITop().getGUIGrid().getButton(row, column).displayMine();
 				}
@@ -179,8 +179,8 @@ public class Controller {
 	 */
 	public void lockButtons() {
 		//Iterate over the Cells:
-		for (int row = 0; row < num_high; row++) {
-			for (int column = 0; column < num_wide; column++) {
+		for (int row = 0; row < numHigh; row++) {
+			for (int column = 0; column < numWide; column++) {
 				//TODO - fill this in
 			}
 		}
@@ -199,6 +199,6 @@ public class Controller {
 	 * @return The number of mines
 	 */
 	public int getNumMines() {
-		return num_mines;
+		return numMines;
 	}
 }

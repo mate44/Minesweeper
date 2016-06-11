@@ -10,7 +10,7 @@ public class GUI {
 	private GUIBottom bottom;
 	private JFrame frame;
 	
-	public GUI(int num_wide, int num_high, int num_mines, Controller controller) {
+	public GUI(Controller controller) {
 		//Create large frame of GUI:
 		frame = new JFrame("Minesweeper");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -18,7 +18,7 @@ public class GUI {
 		frame.setLayout(new BorderLayout());
 		
 		//Add the top grid section to the GUI:
-		top = new GUITop(num_wide, num_high, controller);
+		top = new GUITop(controller);
 		frame.add(top, BorderLayout.NORTH);
 		
 		//Add the bottom text section to the GUI:
