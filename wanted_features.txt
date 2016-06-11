@@ -1,8 +1,8 @@
-If you select a mine first, generate a new game
+If you select a mine first, generate a new game with the mine that was selected as the mine selected
 You win when only mines are left unselected. They don't have to be flagged.
 You shouldn't be able to flag a cell after it's been clicked.
 When the timer increases from 9 to 10, the "number of mines" label shouldn't move. Maybe I should create a new class for the timer and mine counter and set their size to be fixed.
 When you select a cell with no mines adjacent, it should automatically show the value of the surrounding cells.
 README
 
-Update GUITop so that it contains a GUIGrid object and empty padding so that its size is consistent.
+Create padding in the GUI depending on the game difficulty
