@@ -5,5 +5,4 @@ When the timer increases from 9 to 10, the "number of mines" label shouldn't mov
 When you select a cell with no mines adjacent, it should automatically show the value of the surrounding cells.
 README
 
-Fill in the GUIGrid class - it should contain the code that is currently in GUITop.
 Update GUITop so that it contains a GUIGrid object and empty padding so that its size is consistent.

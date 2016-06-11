@@ -131,16 +131,16 @@ public class Controller {
 	 * Displays where all mines are, as well as the number of mines for each Cell.
 	 */
 	public void displayAllMines() {
-		GUITop top = gui.getGUITop();
+		GUIGrid grid = gui.getGUITop().getGUIGrid();
 		
 		for (int row = 0; row < num_high; row++) {
 			for (int column = 0; column < num_wide; column++) {
 				if (cells[row][column].isMine()) {
-					top.getButton(row, column).click(-1);
+					grid.getButton(row, column).click(-1);
 				}
 				else {
 					//Not a mine.
-					top.getButton(row, column).click(cells[row][column].getNumAdjMines());
+					grid.getButton(row, column).click(cells[row][column].getNumAdjMines());
 				}
 			}
 		}
@@ -154,7 +154,7 @@ public class Controller {
 		for (int row = 0; row < num_high; row++) {
 			for (int column = 0; column < num_wide; column++) {
 				if (cells[row][column].isMine()) {
-					gui.getGUITop().getButton(row, column).displayMine();
+					gui.getGUITop().getGUIGrid().getButton(row, column).displayMine();
 				}
 			}
 		}
