@@ -3,7 +3,6 @@
  * Class to run the whole program.
  */
 public class Driver {
-	
 	//Information about the Minesweeper difficulty:
 	private static enum Mode {EASY, MEDIUM, HARD};	//Minesweeper difficulty
 	private static Mode currMode = Mode.MEDIUM;
@@ -12,6 +11,25 @@ public class Driver {
 	private static int num_wide;
 	private static int num_high;
 	private static int num_mines;
+	
+	//Some values to store dimensions of different GUI components:
+	private static int GUIButtonLength;			//The width and height of each GUIButton		TODO - set value
+	private static int GUIGridWidth;			//The width of the GUI Grid		TODO - set value
+	private static int GUIGridHeight;			//The height of the GUIGrid		TODO - set value
+	private static int GUIGridPaddingWidth;		//The width padding for the GUIGrid (each side)		TODO - set value
+	private static int GUIGridPaddingHeight;	//The height padding for the GUIGrid (each side)		TODO - set value
+	private static int GUITopWidth;				//The width of the GUITop		TODO - set value
+	private static int GUITopHeight;			//The height of the GUITop		TODO - set value
+	private static int GUIDifficultyWidth;		//The width of the GUIDifficulty		TODO - set value
+	private static int GUIDifficultyHeight;		//The height of the GUIDifficulty		TODO - set value
+	private static int GUITimeTakenWidth;		//The width of the GUITimeTaken			TODO - set value
+	private static int GUITimeTakenHeight;		//The height of the GUITimeTaken		TODO - set value
+	private static int GUIMinesRemainingWidth;	//The width of the GUIMinesRemaining	TODO - set value
+	private static int GUIMinesRemainingHeight;	//The height of the GUIMinesRemaining	TODO - set value
+	private static int GUIBottomWidth;			//The width of the GUIBottom		TODO - set value
+	private static int GUIBottomHeight;			//The height of the GUIBottom		TODO - set value
+	private static int GUIWidth;				//The width of the GUI		TODO - set value
+	private static int GUIHeight;				//The height of the GUI		TODO - set value
 	
 	public static void main(String[] args) {
 		//Deal a game of Minesweeper:
