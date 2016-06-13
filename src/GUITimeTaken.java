@@ -24,11 +24,11 @@ public class GUITimeTaken extends JPanel {
 		//Add label keeping track of amount of time game has been played:
 		time = new JLabel();
 		time.setFont(new Font(null, Font.BOLD, 18));
-		add(time);
 		setTimeLabel();
+		add(time);
 		
 		//Add Timer to keep track of time:
-		Timer minesTimer = new Timer(1000, new NumMinesListener());
+		Timer minesTimer = new Timer(1000, new TimeTakenListener());
 		minesTimer.start();
 	}
 	
@@ -42,7 +42,7 @@ public class GUITimeTaken extends JPanel {
 	/**
 	 * ActionListener for updating the timer on the GUI
 	 */
-	private class NumMinesListener implements ActionListener {
+	private class TimeTakenListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			numSeconds++;	//Increment timer

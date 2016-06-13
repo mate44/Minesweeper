@@ -19,7 +19,7 @@ public class GUI {
 		frame.setVisible(true);
 		frame.setLayout(new BorderLayout());
 		
-		frame.setPreferredSize(new Dimension(Driver.getGUIWidth(), Driver.getGUIHeight()));
+		frame.setSize(new Dimension(Driver.getGUIWidth(), Driver.getGUIHeight()));
 		
 		//Add the top grid section to the GUI:
 		top = new GUITop(controller);
@@ -28,11 +28,16 @@ public class GUI {
 		//Add the bottom text section to the GUI:
 		bottom = new GUIBottom(controller);
 		frame.add(bottom, BorderLayout.SOUTH);
-		
-		frame.setSize(750, 650);
-		
-		
-		//TODO - make the dimensions of the grid work correctly - as in the size of the GUI
+	}
+	
+	
+	//TODO - remove this method:
+	public void printIt() {
+		System.out.println("Top:\t\t" + top.getSize());
+		System.out.println("Bottom:\t\t" + bottom.getSize());
+		System.out.println("Grid:\t\t" + top.getGUIGrid().getSize());
+		System.out.println("Total:\t\t" + frame.getSize());
+		System.out.println();
 	}
 	
 	/**

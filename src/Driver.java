@@ -25,7 +25,7 @@ public class Driver {
 	private static int numMinesHARD = 99;
 	
 	//Some values to store dimensions of different GUI components:
-	private static int GUIButtonLength = 20;	//The width and height of each GUIButton		TODO - set to appropriate value
+	private static int GUIButtonLength = 40;	//The width and height of each GUIButton		TODO - set to appropriate value
 	private static int GUIGridWidth;			//The width of the GUI Grid
 	private static int GUIGridHeight;			//The height of the GUIGrid
 	private static int GUIGridPaddingWidth;		//The width padding for the GUIGrid (each side)
@@ -39,7 +39,7 @@ public class Driver {
 	private static int GUIMinesRemainingWidth;	//The width of the GUIMinesRemaining
 	private static int GUIMinesRemainingHeight;	//The height of the GUIMinesRemaining
 	private static int GUIBottomWidth;			//The width of the GUIBottom
-	private static int GUIBottomHeight = 100;	//The height of the GUIBottom			TODO - set to appropriate value
+	private static int GUIBottomHeight = 140;	//The height of the GUIBottom			TODO - set to appropriate value
 	private static int GUIWidth;				//The width of the GUI
 	private static int GUIHeight;				//The height of the GUI
 	
@@ -120,7 +120,7 @@ public class Driver {
 		GUIGridPaddingHeight = (GUITopHeight - GUIGridHeight) / 2;
 		
 		//Set GUIBottom dimension:
-		GUIBottomWidth = calculateMaxGUIGridWidth();
+		GUIBottomWidth = GUITopWidth;
 		
 		//Set GUIDifficulty dimension:
 		GUIDifficultyWidth = GUIBottomWidth / 3;
@@ -135,7 +135,7 @@ public class Driver {
 		GUIMinesRemainingHeight = GUIBottomHeight;
 		
 		//Set GUI dimension:
-		GUIWidth = calculateMaxGUIGridWidth();
+		GUIWidth = GUITopWidth;
 		GUIHeight = GUITopHeight + GUIBottomHeight;
 	}
 	
@@ -321,5 +321,4 @@ public class Driver {
 	public static int getNumMines() {
 		return numMines;
 	}
-	
 }

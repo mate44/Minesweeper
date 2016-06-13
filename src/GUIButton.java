@@ -14,6 +14,7 @@ import javax.swing.JButton;
 public class GUIButton extends JButton {
 	private int row, column;
 	private Controller controller;
+	private int fontSize = 14;		//TODO - set good value
 	
 	public GUIButton(int row, int column, Controller controller) {
 		//Save position on grid:
@@ -26,8 +27,8 @@ public class GUIButton extends JButton {
 		setPreferredSize(new Dimension(Driver.getGUIButtonLength(), Driver.getGUIButtonLength()));
 		
 		//Formatting of the button:
-		setSize(15, 15);
-		setFont(new Font("Verdana", Font.BOLD, 16));
+		setSize(Driver.getGUIButtonLength(), Driver.getGUIButtonLength());
+		setFont(new Font("Verdana", Font.BOLD, fontSize));
 		
 		this.addMouseListener(new Mouse());		//Add listener to deal with mouse interactions
 	}
@@ -37,12 +38,12 @@ public class GUIButton extends JButton {
 	 */
 	public void click(int num_mines) {
 		if (num_mines == 0) {
-			setFont(new Font("Verdana", Font.BOLD, 16));
+			setFont(new Font("Verdana", Font.BOLD, fontSize));
 			setForeground(Color.BLACK);
 			setText(" ");
 		}
 		else if (num_mines >= 1 && num_mines <= 8) {
-			setFont(new Font("Verdana", Font.BOLD, 16));
+			setFont(new Font("Verdana", Font.BOLD, fontSize));
 			setForeground(Color.BLACK);
 			setText((new Integer(num_mines)).toString());
 		}

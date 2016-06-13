@@ -13,6 +13,7 @@ public class GUITop extends JPanel {
 	GUIGrid grid;
 	public GUITop(Controller controller) {
 		setLayout(new BorderLayout());
+		
 		setPreferredSize(new Dimension(Driver.getGUITopWidth(), Driver.getGUITopHeight()));
 		
 		//Add top blank space:
