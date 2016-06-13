@@ -89,6 +89,7 @@ public class GUIButton extends JButton {
 				if (controller.getCell(row, column).isFlagged() == true) {
 					controller.getCell(row, column).setFlagged(false);
 					click(0);	//Reset text on button
+					controller.getGUI().getGUIBottom().getGUIMinesRemaining().mineDeselect();	//Update number of mines
 				}
 				else {
 					//Not flagged
@@ -97,9 +98,8 @@ public class GUIButton extends JButton {
 					//Change text on button:
 					setText("!");
 					setForeground(Color.BLUE);
+					controller.getGUI().getGUIBottom().getGUIMinesRemaining().mineSelect();		//Update number of mines
 				}
-				
-				//Right click
 			}
 		}
 

@@ -10,24 +10,39 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class GUIMinesRemaining extends JPanel {
 	private JLabel mines;
+	private int minesRemaining;		//The number of mines yet to be selected by the user
 	
-	public GUIMinesRemaining(Controller controller) {
+	public GUIMinesRemaining(int minesRemaining) {
 		setPreferredSize(new Dimension(Driver.getGUIMinesRemainingWidth(), Driver.getGUIMinesRemainingHeight()));
 		
 		//Add label keeping track of number of mines remaining:
 		mines = new JLabel();
-		setMinesRemainingLabel(controller.getNumMines());
 		mines.setFont(new Font(null, Font.BOLD, 18));
+		this.minesRemaining = minesRemaining;
+		setMinesRemainingLabel();
 		add(mines);
-		
-		//TODO - Update the number of mines based on how many flags have been placed.
 	}
 	
 	/**
 	 * Update the number of mines the user is yet to identify.
-	 * @param numMines The new number of mines
 	 */
-	private void setMinesRemainingLabel(int numMines) {
-		mines.setText("Mines remaining: " + numMines);
+	private void setMinesRemainingLabel() {
+		mines.setText("Mines remaining: " + minesRemaining);
+	}
+	
+	/**
+	 * Decrements the number of mines
+	 */
+	public void mineSelect() {
+		minesRemaining--;
+		setMinesRemainingLabel();
+	}
+	
+	/**
+	 * Increments the number of mines
+	 */
+	public void mineDeselect() {
+		minesRemaining++;
+		setMinesRemainingLabel();
 	}
 }
