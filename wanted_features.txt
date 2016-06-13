@@ -4,5 +4,5 @@ You shouldn't be able to flag a cell after it's been clicked.
 When you select a cell with no mines adjacent, it should automatically show the value of the surrounding cells.
 README
 Once you win/lose, stop the timer
-GUITop and GUIBottom overlap in their area
+GUITop and GUIBottom overlap in their area - idea: remove GUIGrid and it's surrounding squares. Replace with an empty space of the same size.
 set jframe to not be resizable
