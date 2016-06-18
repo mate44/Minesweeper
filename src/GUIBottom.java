@@ -1,5 +1,7 @@
+import java.awt.Color;
 import java.awt.Dimension;
 
+import javax.swing.Box;
 import javax.swing.JPanel;
 import javax.swing.BoxLayout;
 
@@ -22,7 +24,7 @@ public class GUIBottom extends JPanel {
 		add(radioButtons);
 		
 		//Add section to keep track of time taken:
-		timeTaken = new GUITimeTaken();
+		timeTaken = new GUITimeTaken(controller);
 		add(timeTaken);
 		
 		//Add section to keep track of number of remaining mines:

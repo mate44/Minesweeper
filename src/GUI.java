@@ -16,7 +16,6 @@ public class GUI {
 		//Create large frame of GUI:
 		frame = new JFrame("Minesweeper");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
 		frame.setLayout(new BorderLayout());
 		
 		frame.setSize(new Dimension(Driver.getGUIWidth(), Driver.getGUIHeight()));
@@ -28,6 +27,16 @@ public class GUI {
 		//Add the bottom text section to the GUI:
 		bottom = new GUIBottom(controller);
 		frame.add(bottom, BorderLayout.SOUTH);
+		
+		frame.setVisible(true);
+	}
+	
+	/**
+	 * Returns the JFrame
+	 * @return the JFrame
+	 */
+	public JFrame getFrame() {
+		return frame;
 	}
 	
 	

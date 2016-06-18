@@ -14,8 +14,9 @@ import javax.swing.Timer;
 public class GUITimeTaken extends JPanel {
 	private JLabel time;
 	private int numSeconds;
+	private Controller controller;	//TODO - remove
 	
-	public GUITimeTaken() {
+	public GUITimeTaken(Controller controller) {		//TODO - remove controller
 		setPreferredSize(new Dimension(Driver.getGUITimeTakenWidth(), Driver.getGUITimeTakenHeight()));
 		
 		//Set the number of seconds so far to 0:
@@ -30,6 +31,7 @@ public class GUITimeTaken extends JPanel {
 		//Add Timer to keep track of time:
 		Timer minesTimer = new Timer(1000, new TimeTakenListener());
 		minesTimer.start();
+		this.controller = controller;
 	}
 	
 	/**
@@ -47,6 +49,17 @@ public class GUITimeTaken extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			numSeconds++;	//Increment timer
 			setTimeLabel();	//Update GUI timer
+			
+			
+			//TODO - remove:
+			if (numSeconds < 4) {
+				System.out.println("Time:\t\t" + numSeconds);
+				System.out.println("GUITop:\t\t" + controller.getGUI().getGUITop().getSize().height);
+				System.out.println("GUIGrid:\t" + controller.getGUI().getGUITop().getGUIGrid().getSize().height);
+				System.out.println("GUIBottom:\t" + controller.getGUI().getGUIBottom().getSize().height);
+				System.out.println("GUI:\t\t" + controller.getGUI().getFrame().getSize().height);
+				System.out.println();
+			}
 		}
 	}
 }
