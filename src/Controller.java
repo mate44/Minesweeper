@@ -159,6 +159,9 @@ public class Controller {
 			}
 		}
 		
+		//Stop the timer:
+		gui.getGUIBottom().getGUITimeTaken().stopTimer();
+		
 		//Lock the buttons so they can no longer be selected:
 		lockButtons();
 		
@@ -170,6 +173,9 @@ public class Controller {
 	 * This method is called if the user wins the game.
 	 */
 	public void winGame() {
+		//Stop the timer:
+		gui.getGUIBottom().getGUITimeTaken().stopTimer();
+		
 		//TODO - call this method somewhere
 		gui.winGameDialog();
 	}

@@ -15,6 +15,7 @@ public class GUITimeTaken extends JPanel {
 	private JLabel time;
 	private int numSeconds;
 	private Controller controller;	//TODO - remove
+	private Timer minesTimer;
 	
 	public GUITimeTaken(Controller controller) {		//TODO - remove controller
 		setPreferredSize(new Dimension(Driver.getGUITimeTakenWidth(), Driver.getGUITimeTakenHeight()));
@@ -29,9 +30,16 @@ public class GUITimeTaken extends JPanel {
 		add(time);
 		
 		//Add Timer to keep track of time:
-		Timer minesTimer = new Timer(1000, new TimeTakenListener());
+		minesTimer = new Timer(1000, new TimeTakenListener());
 		minesTimer.start();
 		this.controller = controller;
+	}
+	
+	/**
+	 * Stops the timer running.
+	 */
+	public void stopTimer() {
+		minesTimer.stop();
 	}
 	
 	/**
@@ -58,6 +66,9 @@ public class GUITimeTaken extends JPanel {
 				System.out.println("GUIGrid:\t" + controller.getGUI().getGUITop().getGUIGrid().getSize().height);
 				System.out.println("GUIBottom:\t" + controller.getGUI().getGUIBottom().getSize().height);
 				System.out.println("GUI:\t\t" + controller.getGUI().getFrame().getSize().height);
+				System.out.println("GUIDifficulty:\t" + controller.getGUI().getGUIBottom().getGUIDifficulty().getSize().height);
+				System.out.println("GUITime:\t" + controller.getGUI().getGUIBottom().getGUITimeTaken().getSize().height);
+				System.out.println("GUIMines:\t" + controller.getGUI().getGUIBottom().getGUIMinesRemaining().getSize().height);
 				System.out.println();
 			}
 		}

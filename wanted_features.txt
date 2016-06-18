@@ -3,6 +3,10 @@ You win when only mines are left unselected. They don't have to be flagged.
 You shouldn't be able to flag a cell after it's been clicked.
 When you select a cell with no mines adjacent, it should automatically show the value of the surrounding cells.
 README
-Once you win/lose, stop the timer
-GUITop and GUIBottom overlap in their area - idea: change layout for GUIBottom to BorderLayout
-set jframe to not be resizable
+
+
+
+GUITop and GUIBottom overlap in their area:
+	It seems like the top and bottom sections are the correct size, but they overlap. Not sure how this works since the heights of the two components add up to the total height of the GUI.
+	If you drag the window size down, then the extra text moves down. This suggests that the GUITop section is over the top of some of the GUIBottom section.
+	Once this is fixed, look through all code and clean up

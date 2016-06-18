@@ -16,6 +16,7 @@ public class GUI {
 		//Create large frame of GUI:
 		frame = new JFrame("Minesweeper");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		frame.setLayout(new BorderLayout());
 		
 		frame.setSize(new Dimension(Driver.getGUIWidth(), Driver.getGUIHeight()));
@@ -29,6 +30,8 @@ public class GUI {
 		frame.add(bottom, BorderLayout.SOUTH);
 		
 		frame.setVisible(true);
+		
+		//frame.setResizable(false);	//TODO - unmute after GUI is sorted
 	}
 	
 	/**
