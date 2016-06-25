@@ -8,7 +8,6 @@ public class Controller {
 	private int numWide, numHigh, numMines;
 	
 	private Cell[][] cells;
-	
 	private GUI gui;
 	
 	public Controller() {
@@ -131,7 +130,7 @@ public class Controller {
 	 * Displays where all mines are, as well as the number of mines for each Cell.
 	 */
 	public void displayAllMines() {
-		GUIGrid grid = gui.getGUITop().getGUIGrid();
+		GUIGrid grid = gui.getGUIFrame().getGUITop().getGUIGrid();
 		
 		for (int row = 0; row < numHigh; row++) {
 			for (int column = 0; column < numWide; column++) {
@@ -154,13 +153,13 @@ public class Controller {
 		for (int row = 0; row < numHigh; row++) {
 			for (int column = 0; column < numWide; column++) {
 				if (cells[row][column].isMine()) {
-					gui.getGUITop().getGUIGrid().getButton(row, column).displayMine();
+					gui.getGUIFrame().getGUITop().getGUIGrid().getButton(row, column).displayMine();
 				}
 			}
 		}
 		
 		//Stop the timer:
-		gui.getGUIBottom().getGUITimeTaken().stopTimer();
+		gui.getGUIFrame().getGUIBottom().getGUITimeTaken().stopTimer();
 		
 		//Lock the buttons so they can no longer be selected:
 		lockButtons();
@@ -174,7 +173,7 @@ public class Controller {
 	 */
 	public void winGame() {
 		//Stop the timer:
-		gui.getGUIBottom().getGUITimeTaken().stopTimer();
+		gui.getGUIFrame().getGUIBottom().getGUITimeTaken().stopTimer();
 		
 		//TODO - call this method somewhere
 		gui.winGameDialog();

@@ -6,7 +6,6 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 
-
 /**
  * Class for the GUI of an individual grid cell
  */
@@ -14,7 +13,7 @@ import javax.swing.JButton;
 public class GUIButton extends JButton {
 	private int row, column;
 	private Controller controller;
-	private int fontSize = 14;		//TODO - set good value
+	private int fontSize = 14;		//TODO - set appropriate value
 	
 	public GUIButton(int row, int column, Controller controller) {
 		//Save position on grid:
@@ -89,7 +88,7 @@ public class GUIButton extends JButton {
 				if (controller.getCell(row, column).isFlagged() == true) {
 					controller.getCell(row, column).setFlagged(false);
 					click(0);	//Reset text on button
-					controller.getGUI().getGUIBottom().getGUIMinesRemaining().mineDeselect();	//Update number of mines
+					controller.getGUI().getGUIFrame().getGUIBottom().getGUIMinesRemaining().mineDeselect();	//Update number of mines
 				}
 				else {
 					//Not flagged
@@ -98,7 +97,7 @@ public class GUIButton extends JButton {
 					//Change text on button:
 					setText("!");
 					setForeground(Color.BLUE);
-					controller.getGUI().getGUIBottom().getGUIMinesRemaining().mineSelect();		//Update number of mines
+					controller.getGUI().getGUIFrame().getGUIBottom().getGUIMinesRemaining().mineSelect();		//Update number of mines
 				}
 			}
 		}

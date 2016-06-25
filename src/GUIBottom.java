@@ -21,7 +21,7 @@ public class GUIBottom extends JPanel {
 		add(radioButtons);
 		
 		//Add section to keep track of time taken:
-		timeTaken = new GUITimeTaken(controller);
+		timeTaken = new GUITimeTaken();
 		add(timeTaken);
 		
 		//Add section to keep track of number of remaining mines:

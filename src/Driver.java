@@ -39,7 +39,7 @@ public class Driver {
 	private static int GUIMinesRemainingWidth;	//The width of the GUIMinesRemaining
 	private static int GUIMinesRemainingHeight;	//The height of the GUIMinesRemaining
 	private static int GUIBottomWidth;			//The width of the GUIBottom
-	private static int GUIBottomHeight = 140;	//The height of the GUIBottom			TODO - set to appropriate value
+	private static int GUIBottomHeight = 100;	//The height of the GUIBottom
 	private static int GUIWidth;				//The width of the GUI
 	private static int GUIHeight;				//The height of the GUI
 	

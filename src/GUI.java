@@ -1,69 +1,22 @@
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
- * Class for the entire GUI
+ * Class for the entire GUI.
  */
 public class GUI {
-	private GUITop top;
-	private GUIBottom bottom;
-	private JFrame frame;
+	private GUIFrame frame;
 	
 	public GUI(Controller controller) {
 		//Create large frame of GUI:
-		frame = new JFrame("Minesweeper");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		frame.setLayout(new BorderLayout());
-		
-		frame.setSize(new Dimension(Driver.getGUIWidth(), Driver.getGUIHeight()));
-		
-		//Add the top grid section to the GUI:
-		top = new GUITop(controller);
-		frame.add(top, BorderLayout.NORTH);
-		
-		//Add the bottom text section to the GUI:
-		bottom = new GUIBottom(controller);
-		frame.add(bottom, BorderLayout.SOUTH);
-		
-		frame.setVisible(true);
-		
-		//frame.setResizable(false);	//TODO - unmute after GUI is sorted
+		frame = new GUIFrame(controller, "Minesweeper");
 	}
 	
 	/**
-	 * Returns the JFrame
-	 * @return the JFrame
+	 * Returns the GUIFrame
+	 * @return the GUIFrame
 	 */
-	public JFrame getFrame() {
+	public GUIFrame getGUIFrame() {
 		return frame;
-	}
-	
-	
-	//TODO - remove this method:
-	public void printIt() {
-		System.out.println("Top:\t\t" + top.getSize());
-		System.out.println("Bottom:\t\t" + bottom.getSize());
-		System.out.println("Grid:\t\t" + top.getGUIGrid().getSize());
-		System.out.println("Total:\t\t" + frame.getSize());
-		System.out.println();
-	}
-	
-	/**
-	 * Returns the GUITop.
-	 */
-	public GUITop getGUITop() {
-		return top;
-	}
-	
-	/**
-	 * Returns the GUIBottom.
-	 */
-	public GUIBottom getGUIBottom() {
-		return bottom;
 	}
 	
 	/**
