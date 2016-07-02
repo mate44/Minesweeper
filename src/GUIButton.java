@@ -92,10 +92,9 @@ public class GUIButton extends JButton {
 			}
 			else {
 				//Not a mine
-				displayValue(controller.getCell(row, column).getNumAdjMines());
-				cell.markAsKnown();
 				
-				//TODO - if this is not adjacent to a mine, then select all adjacent cells should have their value make known
+				//Reveal value. If there are no adjacent mines, then reveal the value of adjacent cells:
+				controller.revealAndTraverse(row, column);
 			}
 			
 			//setEnabled(false);		//TODO - Fix this - it makes everything grey.

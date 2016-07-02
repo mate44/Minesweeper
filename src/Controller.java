@@ -123,8 +123,37 @@ public class Controller {
 				}
 			}
 		}
-		
 	}
+	
+	/**
+	 * Reveal the value of this cell. If it has no adjacent mines, then reveal the value of adjacent cells.
+	 * @param row is the row we are processing
+	 * @param column is the column we are processing
+	 */
+	public void revealAndTraverse(int row, int column) {
+		int numMines = getCell(row, column).getNumAdjMines();
+		getGUI().getGUIFrame().getGUITop().getGUIGrid().getButton(row, column).displayValue(numMines);
+		getCell(row, column).markAsKnown();
+		
+		if (numMines == 0) {
+			//No adjacent mines, so display value of all adjacent mines
+			
+			//Iterate over surrounding cells:
+			for (int tmp_row = row - 1; tmp_row <= row + 1; tmp_row++) {
+				for (int tmp_column = column - 1; tmp_column <= column + 1; tmp_column++) {
+					if (tmp_row >= 0 && tmp_row < Driver.getNumHigh() && tmp_column >= 0 && tmp_column < Driver.getNumWide()) {
+						if (tmp_row == row && tmp_column == column) {
+							//Don't include this cell
+						}
+						else if (getCell(tmp_row, tmp_column).isValueKnown() == false) {
+							revealAndTraverse(tmp_row, tmp_column);
+						}
+					}
+				}
+			}
+		}
+	}
+	
 	
 	/**
 	 * Displays where all mines are, as well as the number of mines for each Cell.
