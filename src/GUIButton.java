@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Insets;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -13,7 +14,7 @@ import javax.swing.JButton;
 public class GUIButton extends JButton {
 	private int row, column;
 	private Controller controller;
-	private int fontSize = 14;		//TODO - set appropriate value
+	private int fontSize = 22;
 	
 	public GUIButton(int row, int column, Controller controller) {
 		//Save position on grid:
@@ -27,7 +28,10 @@ public class GUIButton extends JButton {
 		
 		//Formatting of the button:
 		setSize(Driver.getGUIButtonLength(), Driver.getGUIButtonLength());
-		setFont(new Font("Verdana", Font.BOLD, fontSize));
+		setFont(new Font("Verdana", Font.PLAIN, fontSize));
+		
+		//Set margin so text takes up entire space of button:
+		setMargin(new Insets(0, 0, 0, 0));
 		
 		this.addMouseListener(new Mouse());		//Add listener to deal with mouse interactions
 	}
@@ -37,12 +41,10 @@ public class GUIButton extends JButton {
 	 */
 	public void click(int num_mines) {
 		if (num_mines == 0) {
-			setFont(new Font("Verdana", Font.BOLD, fontSize));
 			setForeground(Color.BLACK);
-			setText(" ");
+			setText("");
 		}
 		else if (num_mines >= 1 && num_mines <= 8) {
-			setFont(new Font("Verdana", Font.BOLD, fontSize));
 			setForeground(Color.BLACK);
 			setText((new Integer(num_mines)).toString());
 		}
@@ -101,7 +103,8 @@ public class GUIButton extends JButton {
 				}
 			}
 		}
-
+		
+		//TODO - fill in details of the following mouse methods:
 		@Override
 		public void mouseEntered(MouseEvent arg0) {
 		}

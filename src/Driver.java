@@ -25,7 +25,7 @@ public class Driver {
 	private static int numMinesHARD = 99;
 	
 	//Some values to store dimensions of different GUI components:
-	private static int GUIButtonLength = 40;	//The width and height of each GUIButton		TODO - set to appropriate value
+	private static int GUIButtonLength = 40;	//The width and height of each GUIButton
 	private static int GUIGridWidth;			//The width of the GUI Grid
 	private static int GUIGridHeight;			//The height of the GUIGrid
 	private static int GUIGridPaddingWidth;		//The width padding for the GUIGrid (each side)
