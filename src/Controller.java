@@ -135,11 +135,11 @@ public class Controller {
 		for (int row = 0; row < numHigh; row++) {
 			for (int column = 0; column < numWide; column++) {
 				if (cells[row][column].isMine()) {
-					grid.getButton(row, column).click(-1);
+					grid.getButton(row, column).displayValue(-1);
 				}
 				else {
 					//Not a mine.
-					grid.getButton(row, column).click(cells[row][column].getNumAdjMines());
+					grid.getButton(row, column).displayValue(cells[row][column].getNumAdjMines());
 				}
 			}
 		}
@@ -154,6 +154,7 @@ public class Controller {
 			for (int column = 0; column < numWide; column++) {
 				if (cells[row][column].isMine()) {
 					gui.getGUIFrame().getGUITop().getGUIGrid().getButton(row, column).displayMine();
+					cells[row][column].markAsKnown();
 				}
 			}
 		}

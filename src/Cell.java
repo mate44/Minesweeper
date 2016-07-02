@@ -4,13 +4,15 @@
  * Class to represent an individual cell which may or may not be a mine
  */
 public class Cell {
-	private boolean isMine;		//Stores whether or not this Cell is a mine
+	private boolean isMine;			//Stores whether or not this Cell is a mine
 	private boolean flagged;		//If true, it means the user has marked this Cell as being a mine
+	private boolean valueKnown;		//If true, it means the user knows the value of this cell (may or may not be a mine)
 	private int numAdjacentMines;	//Stores the number of adjacent mines
 	
 	public Cell() {
 		isMine = false;
 		flagged = false;
+		valueKnown = false;
 		numAdjacentMines = 0;
 	}
 	
@@ -26,6 +28,13 @@ public class Cell {
 	 */
 	public int getNumAdjMines() {
 		return numAdjacentMines;
+	}
+	
+	/**
+	 * Returns whether this Cell's value is known to the user.
+	 */
+	public boolean isValueKnown() {
+		return valueKnown;
 	}
 	
 	/**
@@ -54,5 +63,12 @@ public class Cell {
 	 */
 	public void setFlagged(boolean flag) {
 		flagged = flag;
+	}
+	
+	/**
+	 * Marks this Cell's value as being known by the user.
+	 */
+	public void markAsKnown() {
+		valueKnown = true;
 	}
 }

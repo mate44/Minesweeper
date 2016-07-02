@@ -27,7 +27,7 @@ public class GUIGrid extends JPanel {
 				buttons[row][column] = new GUIButton(row, column, controller);
 				
 				this.add(buttons[row][column]);
-				buttons[row][column].click(0);
+				buttons[row][column].displayValue(0);
 			}
 		}
 	}

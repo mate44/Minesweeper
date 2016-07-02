@@ -39,7 +39,7 @@ public class GUIButton extends JButton {
 	/**
 	 * Set's the button text once it has been clicked.
 	 */
-	public void click(int num_mines) {
+	public void displayValue(int num_mines) {
 		if (num_mines == 0) {
 			setForeground(Color.BLACK);
 			setText("");
@@ -48,77 +48,114 @@ public class GUIButton extends JButton {
 			setForeground(Color.BLACK);
 			setText((new Integer(num_mines)).toString());
 		}
-		else if (num_mines == -1) {
-			//Define -1 to mean that there is a mine at this Cell
+		else if (num_mines == -1) {	//TODO - replace '-1' with a constant
 			controller.failGame();
 		}
 		
 		//Make the button non-selectable:
-		//TODO - make button non-selectable - maybe I could use polymorphism and use a 2D array of JComponents, which are parent classes of both JButtons and JLabels.
+		//TODO - make button non-selectable - maybe I could use polymorphism and use a 2D array of JComponents, which are parent classes of both JButtons and JLabels. Make sure after it is locked that no buttons can be clicked.
 		
 	}
 	
+	/**
+	 * Marks this GUIButton as being a mine.
+	 */
 	public void displayMine() {
 		setText("x");
 		setForeground(Color.RED);
 	}
 	
 	/**
+	 * Does the appropriate action in response to this GUIButton being left clicked.
+	 */
+	public void leftClick() {
+		Cell cell = controller.getCell(row, column);
+		if (cell.isValueKnown() == true) {
+			//Do nothing
+		}
+		else if (cell.isFlagged() == true) {
+			//Do nothing
+		}
+		else {
+			//Find the value of this cell:
+			if (cell.isMine() == true) {
+				displayValue(-1);
+				cell.markAsKnown();
+			}
+			else {
+				//Not a mine
+				displayValue(controller.getCell(row, column).getNumAdjMines());
+				cell.markAsKnown();
+				
+				//TODO - if this is not adjacent to a mine, then select all adjacent cells should have their value make known
+			}
+			
+			//setEnabled(false);		//TODO - Fix this - it makes everything grey.
+		}
+	}
+	
+	/**
+	 * Does the appropriate action in response to this GUIButton being right clicked.
+	 */
+	public void rightClick() {
+		Cell cell = controller.getCell(row, column);
+		if (cell.isValueKnown() == true) {
+			//Do nothing
+		}
+		else {
+			if (cell.isFlagged() == true) {
+				cell.setFlagged(false);
+				displayValue(0);	//Reset text on button
+				controller.getGUI().getGUIFrame().getGUIBottom().getGUIMinesRemaining().mineDeselect();	//Update number of mines
+			}
+			else {
+				//Not flagged
+				cell.setFlagged(true);
+				
+				//Change text on button:
+				setText("!");
+				setForeground(Color.BLUE);
+				controller.getGUI().getGUIFrame().getGUIBottom().getGUIMinesRemaining().mineSelect();	//Update number of mines
+			}
+		}
+	}
+	
+	/**
 	 * Class to deal with the interactions of the mouse with the buttons.
 	 */
 	private class Mouse implements MouseListener {
-
+		
 		@Override
 		public void mouseClicked(MouseEvent arg0) {
-			//Left click:
-			if ((arg0.getButton() == MouseEvent.BUTTON1) && (controller.getCell(row, column).isFlagged() == false)) {
-				if (controller.isMine(row, column)) {
-					//Is a mine
-					click(-1);
-				}
-				else {
-					//Not a mine
-					click(controller.getCell(row, column).getNumAdjMines());
-				}
-				
-				//setEnabled(false);		//TODO - Fix this - it makes everything grey.
-			}
-			
-			//Right click:
-			else if ((arg0.getButton() == MouseEvent.BUTTON3) && (isEnabled() == true)) {
-				//Toggle whether cell is "flagged":
-				if (controller.getCell(row, column).isFlagged() == true) {
-					controller.getCell(row, column).setFlagged(false);
-					click(0);	//Reset text on button
-					controller.getGUI().getGUIFrame().getGUIBottom().getGUIMinesRemaining().mineDeselect();	//Update number of mines
-				}
-				else {
-					//Not flagged
-					controller.getCell(row, column).setFlagged(true);	//Mark as flagged
-					
-					//Change text on button:
-					setText("!");
-					setForeground(Color.BLUE);
-					controller.getGUI().getGUIFrame().getGUIBottom().getGUIMinesRemaining().mineSelect();		//Update number of mines
-				}
-			}
+			//Deliberately empty method
 		}
 		
-		//TODO - fill in details of the following mouse methods:
 		@Override
 		public void mouseEntered(MouseEvent arg0) {
+			//Deliberately empty method
 		}
 
 		@Override
 		public void mouseExited(MouseEvent arg0) {
+			//Deliberately empty method
 		}
-
+		
 		@Override
 		public void mousePressed(MouseEvent arg0) {
+			//Deliberately empty method
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent arg0) {
+			if (arg0.getButton() == MouseEvent.BUTTON1) {
+				//Left click
+				leftClick();
+				
+			}
+			else if (arg0.getButton() == MouseEvent.BUTTON3) {
+				//Right click
+				rightClick();
+			}
 		}
 	}
 	
