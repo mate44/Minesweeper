@@ -15,6 +15,7 @@ public class GUIButton extends JButton {
 	private int row, column;
 	private Controller controller;
 	private int fontSize = 22;
+	private static final int IS_MINE = -1;		//Constant to mark this GUIButton as being a mine
 	
 	public GUIButton(int row, int column, Controller controller) {
 		//Save position on grid:
@@ -41,20 +42,27 @@ public class GUIButton extends JButton {
 	 */
 	public void displayValue(int num_mines) {
 		if (num_mines == 0) {
-			setForeground(Color.BLACK);
-			setText("");
+			resetText();
 		}
 		else if (num_mines >= 1 && num_mines <= 8) {
 			setForeground(Color.BLACK);
 			setText((new Integer(num_mines)).toString());
 		}
-		else if (num_mines == -1) {	//TODO - replace '-1' with a constant
+		else if (num_mines == IS_MINE) {
 			controller.failGame();
 		}
 		
 		//Make the button non-selectable:
 		//TODO - make button non-selectable - maybe I could use polymorphism and use a 2D array of JComponents, which are parent classes of both JButtons and JLabels. Make sure after it is locked that no buttons can be clicked.
 		
+	}
+	
+	/**
+	 * Resets the text of this GUIButton to be blank.
+	 */
+	public void resetText() {
+		setForeground(Color.BLACK);
+		setText("");
 	}
 	
 	/**
@@ -79,7 +87,7 @@ public class GUIButton extends JButton {
 		else {
 			//Find the value of this cell:
 			if (cell.isMine() == true) {
-				displayValue(-1);
+				displayValue(IS_MINE);
 				cell.markAsKnown();
 			}
 			else {
@@ -105,7 +113,7 @@ public class GUIButton extends JButton {
 		else {
 			if (cell.isFlagged() == true) {
 				cell.setFlagged(false);
-				displayValue(0);	//Reset text on button
+				resetText();
 				controller.getGUI().getGUIFrame().getGUIBottom().getGUIMinesRemaining().mineDeselect();	//Update number of mines
 			}
 			else {
