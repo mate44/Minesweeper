@@ -94,8 +94,7 @@ public class Controller {
 			for (int column = 0; column < numWide; column++) {
 				if (cells[row][column].isMine()) {
 					//Do nothing
-				}
-				else {
+				} else {
 					//Not a mine, so count number of adjacent mines:
 					count = 0;
 					
@@ -105,16 +104,10 @@ public class Controller {
 							if (tmp_row >= 0 && tmp_row < numHigh && tmp_column >= 0 && tmp_column < numWide) {
 								if (tmp_row == row && tmp_column == column) {
 									//Don't bother counting this cell
-								}
-								else {
-									if (cells[tmp_row][tmp_column].isMine()) {
-										count++;
-									}
-									else {
-									}
+								} else if (cells[tmp_row][tmp_column].isMine()) {
+									count++;
 								}
 							}
-							
 						}
 					}
 					
@@ -144,8 +137,8 @@ public class Controller {
 					if (tmp_row >= 0 && tmp_row < Driver.getNumHigh() && tmp_column >= 0 && tmp_column < Driver.getNumWide()) {
 						if (tmp_row == row && tmp_column == column) {
 							//Don't include this cell
-						}
-						else if (getCell(tmp_row, tmp_column).isValueKnown() == false) {
+						} else if (getCell(tmp_row, tmp_column).isValueKnown() == false) {
+							//Call this method on the adjacent cell
 							revealAndTraverse(tmp_row, tmp_column);
 						}
 					}
@@ -153,7 +146,6 @@ public class Controller {
 			}
 		}
 	}
-	
 	
 	/**
 	 * Displays where all mines are, as well as the number of mines for each Cell.
@@ -165,8 +157,7 @@ public class Controller {
 			for (int column = 0; column < numWide; column++) {
 				if (cells[row][column].isMine()) {
 					grid.getButton(row, column).displayValue(-1);
-				}
-				else {
+				} else {
 					//Not a mine.
 					grid.getButton(row, column).displayValue(cells[row][column].getNumAdjMines());
 				}

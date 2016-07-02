@@ -43,12 +43,10 @@ public class GUIButton extends JButton {
 	public void displayValue(int num_mines) {
 		if (num_mines == 0) {
 			resetText();
-		}
-		else if (num_mines >= 1 && num_mines <= 8) {
+		} else if (num_mines >= 1 && num_mines <= 8) {
 			setForeground(Color.BLACK);
 			setText((new Integer(num_mines)).toString());
-		}
-		else if (num_mines == IS_MINE) {
+		} else if (num_mines == IS_MINE) {
 			controller.failGame();
 		}
 		
@@ -80,17 +78,14 @@ public class GUIButton extends JButton {
 		Cell cell = controller.getCell(row, column);
 		if (cell.isValueKnown() == true) {
 			//Do nothing
-		}
-		else if (cell.isFlagged() == true) {
+		} else if (cell.isFlagged() == true) {
 			//Do nothing
-		}
-		else {
+		} else {
 			//Find the value of this cell:
 			if (cell.isMine() == true) {
 				displayValue(IS_MINE);
 				cell.markAsKnown();
-			}
-			else {
+			} else {
 				//Not a mine
 				
 				//Reveal value. If there are no adjacent mines, then reveal the value of adjacent cells:
@@ -108,14 +103,12 @@ public class GUIButton extends JButton {
 		Cell cell = controller.getCell(row, column);
 		if (cell.isValueKnown() == true) {
 			//Do nothing
-		}
-		else {
+		} else {
 			if (cell.isFlagged() == true) {
 				cell.setFlagged(false);
 				resetText();
 				controller.getGUI().getGUIFrame().getGUIBottom().getGUIMinesRemaining().mineDeselect();	//Update number of mines
-			}
-			else {
+			} else {
 				//Not flagged
 				cell.setFlagged(true);
 				
@@ -131,7 +124,6 @@ public class GUIButton extends JButton {
 	 * Class to deal with the interactions of the mouse with the buttons.
 	 */
 	private class Mouse implements MouseListener {
-		
 		@Override
 		public void mouseClicked(MouseEvent arg0) {
 			//Deliberately empty method
@@ -155,15 +147,10 @@ public class GUIButton extends JButton {
 		@Override
 		public void mouseReleased(MouseEvent arg0) {
 			if (arg0.getButton() == MouseEvent.BUTTON1) {
-				//Left click
 				leftClick();
-				
-			}
-			else if (arg0.getButton() == MouseEvent.BUTTON3) {
-				//Right click
+			} else if (arg0.getButton() == MouseEvent.BUTTON3) {
 				rightClick();
 			}
 		}
 	}
-	
 }

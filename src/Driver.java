@@ -57,13 +57,11 @@ public class Driver {
 			numWide = numWideEASY;
 			numHigh = numHighEASY;
 			numMines = numMinesEASY;
-		}
-		else if (currMode == Mode.MEDIUM) {
+		} else if (currMode == Mode.MEDIUM) {
 			numWide = numWideMEDIUM;
 			numHigh = numHighMEDIUM;
 			numMines = numMinesMEDIUM;
-		}
-		else if (currMode == Mode.HARD) {
+		} else if (currMode == Mode.HARD) {
 			numWide = numWideHARD;
 			numHigh = numHighHARD;
 			numMines = numMinesHARD;

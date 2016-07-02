@@ -44,8 +44,7 @@ public class GUI {
 		if (response == 0) {
 			//User selected 'Yes'
 			Driver.reset();
-		}
-		else if (response == 1) {
+		} else if (response == 1) {
 			//User selected 'No'
 			System.exit(0);
 		}
