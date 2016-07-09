@@ -5,8 +5,11 @@ import javax.swing.JOptionPane;
  */
 public class GUI {
 	private GUIFrame frame;
+	private Controller controller;
 	
 	public GUI(Controller controller) {
+		this.controller = controller;
+		
 		//Create large frame of GUI:
 		frame = new GUIFrame(controller, "Minesweeper");
 	}
@@ -32,7 +35,8 @@ public class GUI {
 			System.exit(0);
 		} else if (response == 2) {
 			//User selected 'Cancel'
-			//TODO - lock everything.
+			//TODO - test the following works:
+			controller.lockButtons();
 		}
 	}
 	

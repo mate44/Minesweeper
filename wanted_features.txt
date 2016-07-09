@@ -1,4 +1,15 @@
 If you select a mine first, generate a new game with the mine that was selected as the mine selected
 You win when only mines are left unselected. They don't have to be flagged.
 Create folder in git with a jar of my finished game.
+Non-selectable buttons:
+	All buttons should be blank initially
+	When a button is clicked, the Listener removes that button and replaces it with a JLabel
+	The JLabel should be formatted the way that the JButtons currently are
+	I'll need to change the JButton array to be a JComponent array instead. When the JButton is clicked, replace the item in the JComponent array with the JLabel.
+	I probably need to set a border for the JLabel:
+		setBorder(BorderFactory.createLineBorder(Color.BLACK, 1))
+	Do I still need valueKnown in Cell class?
+	If you right click, the same thing happens as currently.
 README
+Look into centering JLabel's:
+	setHorizontalAlignment(SwingConstants.CENTER);
