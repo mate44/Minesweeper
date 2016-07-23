@@ -1,3 +1,5 @@
+import java.awt.Point;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -59,5 +61,17 @@ public class GUI {
 	public void closeWindow() {
 		frame.setVisible(false);
 		frame.dispose();
+	}
+	
+	/**
+	 * Returns the location of the JFrame
+	 * @return the location on the screen
+	 */
+	public Point getLocationOnScreen() {
+		return frame.getLocationOnScreen();
+	}
+	
+	public void setLocation(Point p) {
+		frame.setLocation(p);
 	}
 }

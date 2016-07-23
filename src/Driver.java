@@ -1,3 +1,5 @@
+import java.awt.Point;
+
 
 /**
  * Class to run the whole program.
@@ -78,11 +80,14 @@ public class Driver {
 	 * This method ends the current game and re-deals
 	 */
 	public static void reset() {
+		Point currentLocation = controller.getGUI().getLocationOnScreen();
+		
 		//Close the current window:
 		controller.getGUI().closeWindow();
 		
 		//Deal a new game:
 		dealGame();
+		controller.getGUI().setLocation(currentLocation);
 	}
 	
 	/**
