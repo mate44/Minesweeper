@@ -51,8 +51,7 @@ public class GUIButton extends JButton {
 		}
 		
 		//Make the button non-selectable:
-		//TODO - make button non-selectable - maybe I could use polymorphism and use a 2D array of JComponents, which are parent classes of both JButtons and JLabels. Make sure after it is locked that no buttons can be clicked.
-		
+		setEnabled(false);
 	}
 	
 	/**
@@ -75,7 +74,12 @@ public class GUIButton extends JButton {
 	 * Does the appropriate action in response to this GUIButton being left clicked.
 	 */
 	public void leftClick() {
+		if (isEnabled() == false) {
+			return;
+		}
+		
 		Cell cell = controller.getCell(row, column);
+		
 		if (cell.isValueKnown() == true) {
 			//Do nothing
 		} else if (cell.isFlagged() == true) {
@@ -87,12 +91,11 @@ public class GUIButton extends JButton {
 				cell.markAsKnown();
 			} else {
 				//Not a mine
-				
 				//Reveal value. If there are no adjacent mines, then reveal the value of adjacent cells:
 				controller.revealAndTraverse(row, column);
 			}
 			
-			//setEnabled(false);		//TODO - Fix this - it makes everything grey.
+			setEnabled(false);
 		}
 	}
 	
@@ -100,6 +103,10 @@ public class GUIButton extends JButton {
 	 * Does the appropriate action in response to this GUIButton being right clicked.
 	 */
 	public void rightClick() {
+		if (isEnabled() == false) {
+			return;
+		}
+		
 		Cell cell = controller.getCell(row, column);
 		if (cell.isValueKnown() == true) {
 			//Do nothing

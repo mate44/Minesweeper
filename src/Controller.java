@@ -207,7 +207,7 @@ public class Controller {
 		//Iterate over the Cells:
 		for (int row = 0; row < numHigh; row++) {
 			for (int column = 0; column < numWide; column++) {
-				//TODO - fill this in
+				gui.getGUIFrame().getGUITop().getGUIGrid().getButton(row, column).setEnabled(false);
 			}
 		}
 	}

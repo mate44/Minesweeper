@@ -35,7 +35,6 @@ public class GUI {
 			System.exit(0);
 		} else if (response == 2) {
 			//User selected 'Cancel'
-			//TODO - test the following works:
 			controller.lockButtons();
 		}
 	}
