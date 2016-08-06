@@ -196,8 +196,30 @@ public class Controller {
 		//Stop the timer:
 		gui.getGUIFrame().getGUIBottom().getGUITimeTaken().stopTimer();
 		
-		//TODO - call this method somewhere
+		//Display dialog to inform user that they won:
 		gui.winGameDialog();
+	}
+	
+	/**
+	 * Checks if the user won the game
+	 */
+	public void checkGameWin() {
+		//Iterate over the grid:
+		for (int row = 0; row < numHigh; row++) {
+			for (int column = 0; column < numWide; column++) {
+				if (cells[row][column].isMine() == true) {
+					//Do nothing
+				} else if (cells[row][column].isValueKnown()) {
+					//Do nothing
+				} else {
+					//Not a mine and the value is not known - therefore, user hasn't won yet
+					return;
+				}
+			}
+		}
+		
+		//If we get to this point, then the user has won the game
+		winGame();
 	}
 	
 	/**

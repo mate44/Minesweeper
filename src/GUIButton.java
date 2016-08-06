@@ -96,6 +96,9 @@ public class GUIButton extends JButton {
 			}
 			
 			setEnabled(false);
+			
+			//Check if you win the game:
+			controller.checkGameWin();
 		}
 	}
 	

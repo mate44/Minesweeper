@@ -1,3 +1,2 @@
 If you select a mine first, generate a new game with the mine that was selected as the mine selected
-You win when only mines are left unselected. They don't have to be flagged.
 Create folder in git with a jar of my finished game.
