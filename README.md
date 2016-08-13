@@ -20,6 +20,9 @@
 * The total time taken is shown at the bottom.
 * In the bottom right there is a counter for how many flags remain.
 
+### How to compile:
+* Within the /src folder, compile and run the Driver.java file.
+
 ### Wanted features:
 * When you select a cell, it becomes grayed out. I'd rather it retains its colour so the text is easier to read.
 * When you change difficulty/create a new game, I'd rather that the current GUI is modified, rather than removed and re-created with the new settings.
