@@ -45,7 +45,7 @@ public class GUI {
 	 * Dialog message to inform user they have won the game
 	 */
 	public void winGameDialog() {
-		int response = JOptionPane.showConfirmDialog(null, "You won!\nPlay again?", "Congratulations", JOptionPane.YES_NO_OPTION);
+		int response = JOptionPane.showConfirmDialog(null, "You won!\nPlay again?", "Congratulations!", JOptionPane.YES_NO_OPTION);
 		if (response == 0) {
 			//User selected 'Yes'
 			Driver.reset();

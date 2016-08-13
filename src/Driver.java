@@ -100,7 +100,7 @@ public class Driver {
 		reset();
 		
 		//Select the cell the user chose earlier:
-		controller.getGUI().getGUIFrame().getGUITop().getGUIGrid().getButton(row, column).leftClick();
+		controller.getGUI().getGUIFrame().getGUITop().getGUIGrid().getGUIButton(row, column).leftClick();
 	}
 	
 	/**

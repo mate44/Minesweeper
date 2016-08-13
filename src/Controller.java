@@ -129,7 +129,7 @@ public class Controller {
 	 */
 	public void revealAndTraverse(int row, int column) {
 		int numMines = getCell(row, column).getNumAdjMines();
-		getGUI().getGUIFrame().getGUITop().getGUIGrid().getButton(row, column).displayValue(numMines);
+		getGUI().getGUIFrame().getGUITop().getGUIGrid().getGUIButton(row, column).displayValue(numMines);
 		getCell(row, column).markAsKnown();
 		
 		if (numMines == 0) {
@@ -160,10 +160,10 @@ public class Controller {
 		for (int row = 0; row < numHigh; row++) {
 			for (int column = 0; column < numWide; column++) {
 				if (cells[row][column].isMine()) {
-					grid.getButton(row, column).displayValue(-1);
+					grid.getGUIButton(row, column).displayValue(-1);
 				} else {
 					//Not a mine.
-					grid.getButton(row, column).displayValue(cells[row][column].getNumAdjMines());
+					grid.getGUIButton(row, column).displayValue(cells[row][column].getNumAdjMines());
 				}
 			}
 		}
@@ -177,7 +177,7 @@ public class Controller {
 		for (int row = 0; row < numHigh; row++) {
 			for (int column = 0; column < numWide; column++) {
 				if (cells[row][column].isMine()) {
-					gui.getGUIFrame().getGUITop().getGUIGrid().getButton(row, column).displayMine();
+					gui.getGUIFrame().getGUITop().getGUIGrid().getGUIButton(row, column).displayMine();
 					cells[row][column].markAsKnown();
 				}
 			}
@@ -233,7 +233,7 @@ public class Controller {
 		//Iterate over the Cells:
 		for (int row = 0; row < numHigh; row++) {
 			for (int column = 0; column < numWide; column++) {
-				gui.getGUIFrame().getGUITop().getGUIGrid().getButton(row, column).setEnabled(false);
+				gui.getGUIFrame().getGUITop().getGUIGrid().getGUIButton(row, column).setEnabled(false);
 			}
 		}
 	}
