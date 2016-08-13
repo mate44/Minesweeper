@@ -1,2 +1,1 @@
-If you select a mine first, generate a new game with the mine that was selected as the mine selected
-Create folder in git with a jar of my finished game.
+Create folder in git with a jar of my finished game. Add note saying this exists - README.md

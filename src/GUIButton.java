@@ -74,11 +74,22 @@ public class GUIButton extends JButton {
 	 * Does the appropriate action in response to this GUIButton being left clicked.
 	 */
 	public void leftClick() {
+		Cell cell = controller.getCell(row, column);
+		
+		//Deal with case if first selection is a mine:
+		if (controller.getFirstMove() == true) {
+			controller.setFirstMove(false);
+			
+			if (cell.isMine() == true) {
+				//Deal again
+				Driver.resetAndSelect(row, column);
+				return;		//Don't proceed any further in this method.
+			}
+		}
+		
 		if (isEnabled() == false) {
 			return;
 		}
-		
-		Cell cell = controller.getCell(row, column);
 		
 		if (cell.isValueKnown() == true) {
 			//Do nothing

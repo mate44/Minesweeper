@@ -35,7 +35,7 @@ public class GUIGrid extends JPanel {
 	/**
 	 * Returns the specified GUIButton.
 	 */
-	public GUIButton getButton(int row, int column) {
+	public GUIButton getButton(int row, int column) {	//TODO - rename method - getGUIButton
 		return buttons[row][column];
 	}
 }

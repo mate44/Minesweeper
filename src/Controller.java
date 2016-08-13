@@ -7,10 +7,14 @@ import java.util.Random;
 public class Controller {
 	private int numWide, numHigh, numMines;
 	
+	private boolean firstMove;	//If true, it is the first move of the player
+	
 	private Cell[][] cells;
 	private GUI gui;
 	
 	public Controller() {
+		firstMove = true;
+		
 		numWide = Driver.getNumWide();
 		numHigh = Driver.getNumHigh();
 		numMines = Driver.getNumMines();
@@ -248,5 +252,21 @@ public class Controller {
 	 */
 	public int getNumMines() {
 		return numMines;
+	}
+	
+	/**
+	 * Returns whether it is the first move of the player.
+	 * @return firstMove
+	 */
+	public boolean getFirstMove() {
+		return firstMove;
+	}
+	
+	/**
+	 * Sets whether or not it is the player's first move.
+	 * @param move is the new value of firstMove
+	 */
+	public void setFirstMove(boolean move) {
+		firstMove = move;
 	}
 }

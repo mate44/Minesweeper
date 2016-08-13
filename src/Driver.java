@@ -91,6 +91,19 @@ public class Driver {
 	}
 	
 	/**
+	 * Resets the game and selects a specified GUIButton.
+	 * This is used in the case where the first cell selected is a mine.
+	 * @param row is the row of the GUIButton we want to select
+	 * @param column is the column of the GUIButton we want to select
+	 */
+	public static void resetAndSelect(int row, int column) {
+		reset();
+		
+		//Select the cell the user chose earlier:
+		controller.getGUI().getGUIFrame().getGUITop().getGUIGrid().getButton(row, column).leftClick();
+	}
+	
+	/**
 	 * Sets the mode of the game
 	 * @param newMode is the new mode
 	 */
