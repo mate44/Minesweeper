@@ -1,1 +1,0 @@
-Create folder in git with a jar of my finished game. Add note saying this exists - README.md
